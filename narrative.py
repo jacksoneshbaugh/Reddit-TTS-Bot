@@ -18,12 +18,14 @@ from selenium.webdriver.remote.webelement import WebElement
 from . import tts
 
 
-MAX_WORDS_PER_PART = 140
-
-
 class Narrative:
     """
     This class represents a narrative object, which will eventually be converted to an audio file.
+
+    Attributes:
+    text: The text to be spoken
+    title: The title of the story
+    word_count: The word count of the story
     """
 
     def __init__(self, text: str, title: str):
@@ -57,20 +59,20 @@ class Narrative:
         """
         return self.text
 
-    def to_audio(self, file_path: str) -> list[str]:
+    def to_audio(self, file_path: str, max_words_per_part: int = 140) -> list[str]:
         """
         This function converts the text of the story to an audio file.
         :param file_path: The path to save the .wav file (parent directory)
         :return: The name(s) of the .wav file(s)
         """
 
-        if self.word_count > MAX_WORDS_PER_PART:
+        if self.word_count > max_words_per_part:
             # Split the story into parts
             parts = []
             words = self.text.split()
             part = ""
             for word in words:
-                if len(part.split()) < MAX_WORDS_PER_PART:
+                if len(part.split()) < max_words_per_part:
                     part += word + " "
                 else:
                     parts.append(part)
@@ -88,13 +90,12 @@ class Narrative:
 
 # Scrape narratives from Reddit
 
-locations: tuple = ("r/tifu", "r/entitledparents", "r/AmItheAsshole")
+locations: list = ["r/tifu", "r/entitledparents", "r/AmItheAsshole"]
 
-DEFAULT_MIN_WORD_COUNT: int = 100
 SCROLL_PAUSE_TIME: int = 3
 
 
-def scrape_narratives(num_narratives: int, min_word_count: int = DEFAULT_MIN_WORD_COUNT,
+def scrape_narratives(num_narratives: int, min_word_count: int = 100,
                       locations: list = locations) -> list:
     """
     This function scrapes narratives from Reddit.
