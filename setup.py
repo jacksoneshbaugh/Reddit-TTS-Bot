@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='reddit_tts_bot',
-    version='1.0.2',
+    version='1.0.3',
     packages=find_packages(),
     description='A module that facilitates the creation of short form content from Reddit posts.',
     long_description=open(os.path.dirname(__file__) + os.sep + 'README.md').read(),
