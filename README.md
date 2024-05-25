@@ -4,6 +4,8 @@ Facilitates the creation of a bot that stitches together narratives from Reddit 
 
 **Note**: This module was thrown together rather haphazardly and thus is probably not the most efficient or well-organized. Please feel free to contribute to this project to make it better!
 
+------
+
 ## Installation
 
 ```bash
@@ -32,9 +34,11 @@ brew install ffmpeg portaudio geckodriver
 
 These aren't the only package managers available for these operating systems. You can use any package manager you prefer.
 
+-----
+
 ## Usage
 
-For a more robust example, check out the driver script I wrote for this module [here](https://github.com/jacksoneshbaugh/reddit-tts-bot-driver).
+For a more robust example, check out the driver script I wrote for this module [here](https://github.com/jacksoneshbaugh/brainrot-bot).
 
 You can use the functionality provided by this module in different ways. The process of the creation of a video with a "narrative" (Reddit post) and background video is broken down into steps.
 
