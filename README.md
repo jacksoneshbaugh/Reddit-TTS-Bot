@@ -9,7 +9,7 @@ Facilitates the creation of a bot that stitches together narratives from Reddit 
 ## Installation
 
 ```bash
-pip install reddit_tts_bot
+pip install reddit-tts-bot
 ```
 
 This module also requires `ffmpeg`, `portaudio`, and `geckodriver` to be installed on your system. Additionally, you'll need Firefox (for the `geckodriver` to work—the coolest part where your browser scrolls all by itself!) You can install them using the following commands:
@@ -43,7 +43,7 @@ For a more robust example, check out the driver script I wrote for this module [
 You can use the functionality provided by this module in different ways. The process of the creation of a video with a "narrative" (Reddit post) and background video is broken down into steps.
 
 ```python
-import reddit-tts-bot as rtb
+import reddit_tts_bot as rtb
 
 # Step 1: Pull narratives from Reddit
 narratives = rtb.narrative.scrape_narratives(3)
