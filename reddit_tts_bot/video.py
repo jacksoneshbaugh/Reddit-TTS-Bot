@@ -18,7 +18,7 @@ from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from moviepy.video.tools.subtitles import SubtitlesClip
 
-from narrative import Narrative
+from .narrative import Narrative
 
 
 def get_random_video() -> str | None:
