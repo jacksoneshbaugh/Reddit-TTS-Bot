@@ -43,7 +43,7 @@ For a more robust example, check out the driver script I wrote for this module [
 You can use the functionality provided by this module in different ways. The process of the creation of a video with a "narrative" (Reddit post) and background video is broken down into steps.
 
 ```python
-import reddit_tts_bot as rtb
+import reddit-tts-bot as rtb
 
 # Step 1: Pull narratives from Reddit
 narratives = rtb.narrative.scrape_narratives(3)
