@@ -1,5 +1,5 @@
 __author__ = "Jackson Eshbaugh"
-__version__ = "05/24/2024"
+__version__ = "05/26/2024"
 
 import os
 
@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='reddit_tts_bot',
-    version='1.0.6',
+    version='1.0.7',
     packages=find_packages(),
     description='A module that facilitates the creation of short form content from Reddit posts.',
     long_description=open(os.path.dirname(__file__) + os.sep + 'README.md').read(),

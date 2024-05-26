@@ -1,5 +1,5 @@
 __author__ = "Jackson Eshbaugh"
-__version__ = "05/23/2024"
+__version__ = "05/26/2024"
 """
 This file contains code pertaining to narrative generation for the Reddit TTS Bot (including scraping from Reddit).
 """
@@ -133,7 +133,7 @@ def scrape_narratives(num_narratives: int, min_word_count: int = 100,
             # Choose a random post
             post: WebElement = random.choice(posts)
 
-            while post.get_attribute('aria-label') in open("narrative_names.txt").read():
+            while post.get_attribute('aria-label').replace(":", "-").replace("/", "-") in open("narrative_names.txt").read():
                 # Scroll the page a bit to load more content
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(SCROLL_PAUSE_TIME)
