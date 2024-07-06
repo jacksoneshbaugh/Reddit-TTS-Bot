@@ -7,13 +7,13 @@ This file contains code pertaining to text-to-speech (TTS) functionality for the
 import os
 
 from voicebox import SimpleVoicebox
-from voicebox.tts import gTTS
 from voicebox.sinks import Distributor, WaveFile
 
 
-def tts(text: str, file_path: str, file_name: str) -> None:
+def tts(tts_engine, text: str, file_path: str, file_name: str) -> None:
     """
     This function takes a string of text and saves it as a .wav file.
+    :param tts_engine: The voicebox TTS engine to use (see voicebox.tts for possible imports)
     :param text: The text to be spoken
     :param file_path: The path to save the .wav file (parent directory)
     :param file_name: The name of the .wav file (excluding the file extension)
@@ -27,5 +27,5 @@ def tts(text: str, file_path: str, file_name: str) -> None:
     sink = Distributor([
         WaveFile(file_path + os.sep + file_name + ".wav")
     ])
-    voicebox = SimpleVoicebox(tts=gTTS(), sink=sink)
+    voicebox = SimpleVoicebox(tts=tts_engine, sink=sink)
     voicebox.say(text)

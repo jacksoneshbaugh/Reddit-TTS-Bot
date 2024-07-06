@@ -106,11 +106,18 @@ This function scrapes Reddit for narratives to make into shorts. It saves the ti
 
 This module provides the functionality to convert text to speech. The `tts` module consists of one method, `tts()`.
 
-#### `tts.tts(text, file_path, file_name)`
+#### `tts.tts(tts_engine, text, file_path, file_name)`
 
 This function converts text to speech using the Google Translate Text-to-Speech API. It saves the spoken audio to a WAV file.
 
 ##### Parameters:
+- `tts_engine`: The text-to-speech engine to use. You'll need to initialize a voicebox tts engine. Each of the listed submodules [here](https://voicebox.readthedocs.io/en/stable/voicebox.tts.html) is an engine. You'll need to pass the engine you want to use as a parameter to this function. For example, if you wanted to use the Google Translate Text-to-Speech API, you would use this code:
+```python
+from voicebox.tts import gtts
+from reddit_tts_bot import tts
+
+tts.tts(gtts.gTTS(), "Hello, world!", "output", "hello_world")
+```
 - `text`: The text to convert to speech.
 - `file_path`: The path to save the WAV file to (this is the parent directory).
 - `file_name`: The name of the WAV file to save the spoken audio to (without the ".wav" extension).
